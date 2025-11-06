@@ -1,3 +1,29 @@
+/* =====================
+   🔧 CORREÇÃO DE OVERFLOW HORIZONTAL NO MOBILE
+   ===================== */
+
+/* Garante que nenhum elemento estoure a tela */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Corrige margens negativas e sombras que ultrapassam */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Impede grids de criarem rolagem lateral */
+.container,
+.hero,
+.cards,
+.tech-icons,
+.languages {
+  overflow-x: hidden;
+}
+
 /* -------------------------
    Palette: ciano + roxo (tech)
    Dark mode default
@@ -601,12 +627,10 @@ h3::after {
 
 /* Pequena animação de brilho no tooltip */
 .tech-icons i:hover::after {
-  background: linear-gradient(
-    90deg,
-    rgba(5, 10, 15, 0.9),
-    rgba(40, 15, 60, 0.9),
-    rgba(5, 10, 15, 0.9)
-  );
+  background: linear-gradient(90deg,
+      rgba(5, 10, 15, 0.9),
+      rgba(40, 15, 60, 0.9),
+      rgba(5, 10, 15, 0.9));
 }
 
 /* =====================
@@ -683,8 +707,16 @@ h3::after {
     gap: 6px;
   }
 
+  .container {
+    padding: 0 10px;
+  }
+
+  .block {
+    padding: 14px 10px;
+  }
+
   .hero {
-    padding: 20px 14px;
+    padding: 20px 12px;
   }
 
   .neon {
@@ -701,6 +733,10 @@ h3::after {
     line-height: 1.45;
   }
 
+  .cta {
+    flex-direction: column;
+  }
+
   .cta-btn,
   .cta-ghost {
     width: 100%;
@@ -708,8 +744,9 @@ h3::after {
   }
 
   .tech-icons {
-    font-size: 2rem;
     gap: 14px;
+    font-size: 2rem;
+    flex-wrap: wrap;
   }
 
   .languages {
@@ -744,4 +781,14 @@ h3::after {
   .tech-icons {
     font-size: 2.8rem;
   }
+}
+
+/* Remove possíveis “estouros” de sombra ou bordas */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
