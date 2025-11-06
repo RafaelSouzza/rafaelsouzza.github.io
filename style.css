@@ -744,6 +744,7 @@ h3::after {
   .typewriter {
     font-size: 0.9rem;
     white-space: normal;
+    border-right: none;
     text-align: center;
   }
 
